@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom HTML5 Video Player</title>
+
+
+    <link rel="stylesheet" href="{% static 'thuto/style.css' %}" />
+
+  </head>
+  <body>
+  {% load static %}
+    <h3>&nbsp;&nbsp;Subject: {{lesson.subject}}</h3><br>
+    <h2>&nbsp;&nbsp;Topic :{{lesson.topic}}</h2><br>
+    <hr/>
+
+
+
+
+    <div class="video-player" style="border:5px solid black">
+      <video class="video">
+        <source src="{{lesson.video1.url}}" type="video/mp4"/>
+
+        <p>Your browser doesn't support HTML5 video.</p>
+
+      </video>
+      <div class="controls">
+        <div class="progress">
+           <div class="progress__filled"></div>
+        </div>
+         <button class="controls__button toggleButton" title="Toggle Play">►</button>
+
+         <button class="controls__button" data-skip="-10">« 10s</button>
+         <button class="controls__button" data-skip="25">10s »</button>
+      </div>
+    </div>
+  <h1></h1>
+
+    <div class="card" style="length:250px; width:250px;border:3px solid black; background: #00ff40;">
+      <h3 style="">Check some of the materials : </h3>
+       <hr>
+      <h3><a href="{% url 'thuto:quiz' lesson.id %}">Quiz</a></h3>
+      <h2></h2>
+
+      <hr/>
+
+
+      <h3><a href="{{lesson.notes.url}}">Notes</a></h3>
+
+    </div>
+
+
+    <script src="{% static 'vid_assets/js/script.js' %}"></script>
+
+  </body>
+
+
+</html>

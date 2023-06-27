@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>quiz</title>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+        <center>
+            <h1>Welcome to Thuto quiz</h1>
+            <h3>Test your understanding!!</h3>
+        </center>
+        <div style="padding-left: 30px ">
+            {% for results in results %}
+            <table>
+                <tr>
+                    <td>{{results.id}} ) {{results.Question}} ?</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="Option1" class="rb" name="{{results.id}}" value="{{result.Option1}}">{{results.Option1}}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="Option2" class="rb" name="{{results.id}}" value="{{result.Option2}}">{{results.Option2}}</td>
+                </tr><tr>
+                    <td><input type="radio" id="Option3" class="rb" name="{{results.id}}" value="{{result.Option3}}">{{results.Option3}}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="Option4" class="rb" name="{{results.id}}" value="{{result.Option4}}">{{results.Option4}}</td>
+                </tr>
+                <tr>
+                    <td><label id="Corrans" class="rb" style="display:none;color:green;"><b>the correct answer is {{results.Corrans}}</b></label></td>
+                </tr>
+                <hr/>
+            </table>
+
+
+
+            {% endfor %}
+
+            <input type="submit" value="Click For Results" id="but1" onclick="getAnswers();"/>
+            <b id="UserAnswers"></b>
+            <hr/>
+        </div>
+
+<script src="{% static 'quiz.js' %}"></script>
+
+</body>
+</html>

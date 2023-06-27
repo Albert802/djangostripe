@@ -1,0 +1,179 @@
+{% extends 'thuto/menu.html'%}
+
+{% block content %}
+
+{% load static %}
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="{% static 'thuto/assets/images/course-video.mp4' %}" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="caption">
+              <h6>Hello Learners</h6>
+              <h2>Welcome to Thuto</h2>
+
+          </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </section>
+
+ <section class="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-service-item owl-carousel">
+
+            <div class="item">
+              <div class="icon">
+                <img src="assets/images/service-icon-01.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Best Education</h4>
+                <p>Here at thuto you get the best education from the best tutors</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon">
+                <img src="assets/images/service-icon-02.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Best Teachers</h4>
+                <p>Best teachers are essential for best results</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon">
+                <img src="assets/images/service-icon-03.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Best Students</h4>
+                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon">
+                <img src="assets/images/service-icon-02.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Online Lessons</h4>
+                <p>Online lessons accessible everywhere</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon">
+                <img src="assets/images/service-icon-03.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Best Networking</h4>
+                <p>You can also follow us on our facebook page where we communicate some of the discussions</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="upcoming-meetings" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>SUBJECTS</h2>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h1>Hello</h1>
+
+        </div>
+        <h5>Mathematic</h5>
+        <div class="col-lg-8">
+          <div class="row">
+          <div class="col-lg-8">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="meeting-item">
+
+
+                {% if subscription.status == 'active' %}
+                <div class="thumb">
+
+                  {% for i in subject %}
+
+                  <a href="#"><img src="{% static 'thuto/assets/images/meeting-01.jpg' %}" alt="New Lecturer Meeting"></a>
+                </div>
+                <div class="down-content">
+
+                  <a href="{% url 'thuto:grade' i.id %}"><h4>{{i.name}}</h4></a>
+                 {% endfor %}
+
+
+
+
+                </div>
+                {% else %}
+
+                <div class="thumb">
+
+
+
+                  <a href="#"><img src="{% static 'thuto/assets/images/meeting-01.jpg' %}" alt="New Lecturer Meeting"></a>
+                </div>
+                <div class="down-content">
+
+                  <a href=""><h4></h4></a>
+
+
+                 <hr/>
+                  <table>
+                    <th><h4><a href="{% url 'subscriptions:subscriptions-home' %}">Click here to subscribe</a></h4></th>
+                  </table>
+
+
+                </div>
+
+
+
+                {% endif %}
+
+
+
+
+
+              </div>
+
+
+
+              <div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  </section>
+
+
+{% endblock %}
+

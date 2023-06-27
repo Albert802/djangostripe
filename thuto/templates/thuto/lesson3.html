@@ -1,0 +1,22 @@
+{% extends 'thuto/menu.html' %}
+{% block content %}
+{% load static %}
+ <h1>Video Player</h1>
+    <div class="video-player">
+      <video class="video">
+        <source src="{% static 'video/mdu.mp4' %}" type="video/mp4"/>
+
+        <p>Your browser doesn't support HTML5 video.</p>
+
+      </video>
+      <div class="controls">
+        <div class="progress">
+           <div class="progress__filled"></div>
+        </div>
+         <button class="controls__button toggleButton" title="Toggle Play">►</button>
+
+         <button class="controls__button" data-skip="-10">« 10s</button>
+         <button class="controls__button" data-skip="25">10s »</button>
+      </div>
+    </div>
+{% endblock %}
